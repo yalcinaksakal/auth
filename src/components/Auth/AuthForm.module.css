@@ -7,6 +7,7 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   text-align: center;
+  color: white;
 }
 
 .auth h1 {
@@ -25,17 +26,35 @@
   margin-bottom: 0.5rem;
 }
 
-.control input {
+.email,
+.pwdInput,
+i {
+  height: 30px;
   font: inherit;
   background-color: #f1e1fc;
   color: #38015c;
   border-radius: 4px;
-  border: 1px solid white;
+  border: none;
   width: 100%;
   text-align: left;
   padding: 0.25rem;
 }
 
+.pwd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pwdInput {
+  border-radius: 4px 0 0 4px;
+  width: calc(100% -30px);
+}
+i {
+  font-size: 15px;
+  padding-top: 7px;
+  width: 30px;
+  border-radius: 0 4px 4px 0;
+}
 .actions {
   margin-top: 1.5rem;
   display: flex;
@@ -64,6 +83,15 @@
   color: #9f5ccc;
   border: none;
   padding: 0.15rem 1.5rem;
+}
+.actions .error {
+  margin-top: 1rem;
+  background-color: white;
+  color: red;
+  border: none;
+  padding: 0.15rem 1.5rem;
+  border-radius: 4px;
+  text-transform: capitalize;
 }
 
 .actions .toggle:hover {
