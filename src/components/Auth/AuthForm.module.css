@@ -26,6 +26,9 @@
   margin-bottom: 0.5rem;
 }
 
+.auth input:focus {
+  outline: none;
+}
 .email,
 .pwdInput,
 i {

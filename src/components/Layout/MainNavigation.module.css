@@ -4,14 +4,15 @@
   background-color: #38015c;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 1rem;
 }
 
 .logo {
-  font-family: 'Lato', sans-serif;
-  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
   color: white;
   margin: 0;
 }
@@ -25,13 +26,12 @@
 }
 
 .header li {
-  margin: 0 1rem;
+  margin-left: 1rem;
 }
 
 .header a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
 }
 
 .header button {
@@ -40,7 +40,7 @@
   border: 1px solid white;
   color: white;
   font-weight: bold;
-  padding: 0.5rem 1.5rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -52,4 +52,10 @@
 .header button:hover {
   background-color: #c291e2;
   color: #38015c;
+}
+@media (max-width: 300px) {
+  .header {
+    padding: 5px;
+    flex-direction: column;
+  }
 }

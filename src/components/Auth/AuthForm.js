@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import AuthContext from "../../store/auth-context";
 
 import classes from "./AuthForm.module.css";
 
@@ -9,6 +10,7 @@ const AuthForm = () => {
   const [showPwd, setShowPwd] = useState(false);
   const emailRef = useRef();
   const pwdRef = useRef();
+  const authCtx = useContext(AuthContext);
 
   const showPwdHandler = () => {
     setShowPwd(prevState => !prevState);
@@ -19,6 +21,7 @@ const AuthForm = () => {
     setIsErr(null);
     emailRef.current.value = "";
     pwdRef.current.value = "";
+    setShowPwd(false);
   };
 
   const submitHandler = event => {
@@ -55,7 +58,7 @@ const AuthForm = () => {
         }
       })
       .then(data => {
-        console.log(data);
+        authCtx.login(data.idToken);
       })
       .catch(error => {
         setIsErr(error.message);
