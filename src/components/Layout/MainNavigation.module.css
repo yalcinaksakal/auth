@@ -31,7 +31,7 @@
 
 .header a {
   text-decoration: none;
-  color: white;
+  color: #c291e2;
 }
 
 .header button {
@@ -45,8 +45,9 @@
   cursor: pointer;
 }
 
-.header a:hover {
-  color: #c291e2;
+.header a:hover,
+.header a.active {
+  color: white;
 }
 
 .header button:hover {

@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from "react";
+import { useHistory } from "react-router";
 import AuthContext from "../../store/auth-context";
 
 import classes from "./AuthForm.module.css";
@@ -11,7 +12,7 @@ const AuthForm = () => {
   const emailRef = useRef();
   const pwdRef = useRef();
   const authCtx = useContext(AuthContext);
-
+  const history = useHistory();
   const showPwdHandler = () => {
     setShowPwd(prevState => !prevState);
   };
@@ -59,6 +60,7 @@ const AuthForm = () => {
       })
       .then(data => {
         authCtx.login(data.idToken);
+        history.replace("/");
       })
       .catch(error => {
         setIsErr(error.message);
@@ -91,7 +93,7 @@ const AuthForm = () => {
             />
             <i
               onClick={showPwdHandler}
-              className={`far fa-eye${showPwd ? "-slash" : ""}`}
+              className={`far fa-eye${showPwd ? "" : "-slash"}`}
             ></i>
           </div>
         </div>

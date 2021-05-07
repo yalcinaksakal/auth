@@ -14,15 +14,29 @@
   color: #353336;
   display: block;
 }
-
+.control div {
+  height: 30px;
+  width: 100%;
+  display: flex;
+}
 .control input {
   display: block;
   font: inherit;
-  width: 100%;
-  border-radius: 4px;
+  width: calc(100% - 30px);
+  border-radius: 4px 0 0 4px;
   border: 1px solid #38015c;
+  border-right: none;
   padding: 0.25rem;
   background-color: #f7f0fa;
+}
+.control input:focus {
+  outline: none;
+}
+.control i {
+  width: 30px;
+  border: 1px solid #38015c;
+  background-color: #f7f0fa;
+  border-left: none;
 }
 
 .action {
