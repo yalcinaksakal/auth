@@ -51,7 +51,7 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then(data => {
-            let errorMsg = "Failed";
+            let errorMsg = "Authentication Failed";
             if (!isLogin && data && data.error && data.error.message)
               errorMsg = data.error.message.replaceAll("_", " ").toLowerCase();
             throw new Error(errorMsg);
@@ -59,7 +59,11 @@ const AuthForm = () => {
         }
       })
       .then(data => {
-        authCtx.login(data.idToken);
+        const expiresIn = +data.expiresIn;
+        const expirationTime = new Date(
+          new Date().getTime() + expiresIn * 1000
+        ).toISOString();
+        authCtx.login(data.idToken, expirationTime);
         history.replace("/");
       })
       .catch(error => {
